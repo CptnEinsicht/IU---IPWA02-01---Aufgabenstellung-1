@@ -1,0 +1,376 @@
+  <style type="text/css">
+    .nav-item .nav-link {
+      color: black;
+      font-weight: bold;
+    }
+    .nav-item a:hover { color: #646262; }
+    .searchbar {
+      width: 100%;
+      font-size: 16px;
+      padding: 12px;
+      border: 1px solid #000000;
+      margin-bottom: 8px;
+      margin-top: 12px;
+    }
+    .d-inline a {
+      color: black;
+      font-weight: bold;
+      text-align: center;
+    }
+    .d-inline a:hover { color: #646262; }
+    footer {
+      color: black;
+      font-weight: bold;
+      background-color: #05701cdc;
+      text-align: left;
+      padding: 12px;
+      border-top: 2px solid #000000;
+    }
+    footer nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    } 
+    footer nav ul li { margin-right: 15px; } 
+    main {
+      display: flex;
+      background-color: #f1dcb5;
+      height: auto;
+    }
+    .localLink {
+      background-color: #e2b768;
+      padding: 10px;
+      border-right: 2px solid #000000;
+    }
+    .localLink a {
+      color: black;
+      font-weight: bold;
+      line-height: 2;
+    }
+    .localLink a:hover { color: #646262; }
+    h1 {
+      color: black;
+      font-size: larger;
+      line-height: 2;
+      text-align: left;
+      margin-left: 12px;
+    }
+    p {
+      color: black;
+      font-size: large;
+      line-height: 1;
+      text-align: left;
+      margin-left: 12px;
+    }
+    #myTable {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 18px;
+    }
+    #myTable th, #myTable td {
+      Text-align: left;
+      padding: 12px;
+    }
+    #myTable th:hover { background-color: #f1f1f1; }
+    .container-fluid-language {
+      display: flex;
+      align-items: right;
+      font-weight: bold;
+    }
+    .language-label { margin-right: 12px; }
+
+    @media (max-width: 990px) { /* 990px, da ab diesem Wert localLink unter dem globalen Navigator liegt */
+      .localLink {
+        border-right: none;
+        border-bottom: 2px solid #000000;
+      }
+    }
+
+    @media (max-width: 480px) { 
+      .navbar { min-width: 600px;} 
+      footer {min-width: 600px;}
+      main {min-width: 600px; }
+     }
+
+    body.rtl { direction: rtl; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand" style="background-color: #05701cdc; border-bottom: 2px solid #000000;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="Logo.png" height="70" width="70" alt="Bild kann nicht geladen werden." align="center"> <!--von heise.de-->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Startseite</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Kontakt</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Über Uns</a>
+              </li>
+            </ul>
+          </div>
+          <div class="language-label">
+            <label for="language">Sprache:</label>
+          </div>
+          <div class="language-dropdown">
+            <select name="language" id="language" onchange="changeLanguage()">
+              <option value="german">Deutsch</option>
+              <option value="arabic">عربي</option>
+            </select>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="container-fluid">
+    <div class="row">
+      <nav class="col-lg-2 col-sm-12 localLink">
+        <ul>
+          <li><a href="https://www.bgr.bund.de/DE/Themen/Nutzung_tieferer_Untergrund_CO2Speicherung/Downloads/faktenblatt-was-ist-co2.pdf?__blob=publicationFile&v=2">Was ist CO²</a></li>
+          <li><a href="https://www.umweltbundesamt.de/themen/klima-energie/klimawandel/haeufige-fragen-klimawandel#klima">Klimawandel</a></li>
+          <li><a href="https://www.pik-potsdam.de/~stefan/Publications/Kipppunkte%20im%20Klimasystem%20-%20Update%202019.pdf">Kipppunkte</a></li>
+        </ul>
+      </nav>
+      <div class="col-lg-10 col-sm-12 mainContent">
+      <h1>CO² Ausstoß und Klimawandel</h1> 
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit porro rem officia, officiis ex, qui nesciunt ullam, earum consectetur veritatis vero maxime dicta. Sapiente molestiae id odit hic est!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, quos adipisci? Quos deserunt facilis iure eos autem numquam possimus, <br>
+          quaerat incidunt neque obcaecati aliquid, impedit cum quisquam expedita. Incidunt, voluptatibus.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio, dignissimos voluptatem labore suscipit consequatur? Blanditiis numquam nisi ullam quibusdam omnis, adipisci, sunt delectus recusandae iste earum sint, placeat officia.</p>
+      <div class="container">
+      <form>
+        <input class="searchbar" type="text" id="myInput" onkeyup="filterTable()" placeholder="Suche nach Unternehmen/Länder">
+      </form>
+      <table id="myTable">        
+        <thead>     
+          <tr>
+            <th data-type="string">Name</th>
+            <th data-type="string">Unternehmen/Land</th>
+            <th data-type="number">CO²-Ausstoß pro Jahr</th>
+         </tr>
+       </thead>
+        <tbody>
+          <tr>
+            <td>Deutschland</td>
+            <td>Land</td>
+            <td>665,9 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>USA</td>
+            <td>Land</td>
+            <td>5000 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Frankreich</td>
+            <td>Land</td>
+            <td>297,5 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Japan</td>
+            <td>Land</td>
+            <td>1060 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>China</td>
+            <td>Land</td>
+            <td>11000 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Thailand</td>
+            <td>Land</td>
+            <td>279 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Polen</td>
+            <td>Land</td>
+            <td>322,1 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Spanien</td>
+            <td>Land</td>
+            <td>245,6 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Argentinien</td>
+            <td>Land</td>
+            <td>186,5 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>dm</td>
+            <td>Unternehmen</td>
+            <td>0,08 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Evonik Industries</td>
+            <td>Unternehmen</td>
+            <td>4,8 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Royal Dutch Shell</td>
+            <td>Unternehmen</td>
+            <td>112 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Esso</td>
+            <td>Unternehmen</td>
+            <td>86 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>CATL</td>
+            <td>Unternehmen</td>
+            <td>42 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Roche</td>
+            <td>Unternehmen</td>
+            <td>35 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>BASF</td>
+            <td>Unternehmen</td>
+            <td>51 Millionen Tonnen</td>
+          </tr>
+          <tr>
+            <td>Bayer</td>
+            <td>Unternehmen</td>
+            <td>14 Millionen Tonnen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <nav>
+      <ul>
+        <li class="d-inline"><a href="privacy.html">Datenschutz</a></li>
+        <li class="d-inline"><a href="imprint.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+    function changeLanguage() {
+      var languageSelect = document.getElementById("language");
+      var selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
+
+       var localLink = document.querySelector(".localLink");
+        if (selectedLanguage === "arabic") {
+          localLink.style.borderRight = "none";
+          localLink.style.borderLeft = "2px solid #000000";
+        } else {
+          localLink.style.borderRight = "2px solid #000000";
+          localLink.style.borderLeft = "none";
+        }
+
+      if (selectedLanguage === "arabic") {
+        document.body.classList.add("rtl");
+      } else {
+        document.body.classList.remove("rtl");
+      }
+    }
+  </script>
+
+  <script> // https://www.w3schools.com/howto/howto_js_filter_table.asp //
+    function filterTable() {
+      var input, filter, table, tr, td1, td2, i, txtValue1, txtValue2;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      
+      for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[0];
+        td2 = tr[i].getElementsByTagName("td")[1];
+        
+        if (td1 && td2) {
+          txtValue1 = td1.innerText;
+          txtValue2 = td2.innerText;
+          if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = ""; }
+            else {
+            tr[i].style.display = "none"; }
+        }       
+      }
+    }
+  </script>
+
+<script> //https://werner-zenk.de/javascript/html-tabelle_sortieren.php
+  const table = document.getElementById("myTable");
+  const headers = table.querySelectorAll("th");
+  const tableBody = table.querySelector("tbody");
+  const rows = tableBody.querySelectorAll("tr");
+  const directions = Array.from(headers).map(function(header) {
+   return "";
+  });
+  
+  const transform = function(index, content) {
+   const type = headers[index].getAttribute("data-type");
+   switch (type) {
+       case "number":
+    return parseFloat(content);
+       case "string":
+       default:
+    return content;
+   }
+  };
+  
+  const sortColumn = function(index, headers) {
+  
+   const cls = ["upArrow", "dnArrow"];
+   headers.forEach((header) => {
+    document.getElementById(header.id).classList.remove(...cls);
+   });
+  
+    const direction = directions[index] || "asc";
+    const multiplier = (direction === "asc") ? 1 : -1;
+    const cssSort = (direction === "asc") ? cls[0] : cls[1];
+    document.getElementById(index).classList.add(cssSort);
+  
+    const newRows = Array.from(rows);
+    newRows.sort((rowA, rowB) => {
+       const cellA = encodeURIComponent(rowA.querySelectorAll("td")[index].textContent.toLowerCase());
+       const cellB = encodeURIComponent(rowB.querySelectorAll("td")[index].textContent.toLowerCase());
+  
+       const a = transform(index, cellA);
+       const b = transform(index, cellB);
+  
+       switch (true) {
+        case a > b: return 1 * multiplier;
+        case a < b: return -1 * multiplier;
+        case a === b: return 0;
+         }
+     });
+  
+     [].forEach.call(rows, function(row) {
+         tableBody.removeChild(row);
+     });
+  
+     directions[index] = direction === "asc" ? "desc" : "asc";
+     newRows.forEach(function(newRow) {
+         tableBody.appendChild(newRow);
+     });
+   };
+  
+  [].forEach.call(headers, function(header, index) {
+     header.setAttribute("id", index);
+     header.addEventListener("click", () => {
+         sortColumn(index, headers);
+     });
+  });
+  </script>
+</body>   
+</html>
+
