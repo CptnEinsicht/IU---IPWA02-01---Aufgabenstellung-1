@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+  <title>CO²-Ausstoß</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+    	<h:panelGrid columns="3">
+        	<h:outputLabel value="Eingeloggt als: " for="name"/>
+        	<h:outputLabel value="Admin" for="pass"/>
+        	<h:commandButton value="Logout" action="index.xhtml" />
+    	</h:panelGrid>
+  	</h:form>
+
+  	<p><img id="kopf_links" src="Logo.png" width="75" alt="Logo"/></p>
+  	<p id="kopf_rechts"></p>
+  	
+  	<h1>CO²-Ausstoß</h1>
+  	<p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+  	<p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+  
+  	<h2>Bestätigen?</h2>
+	<h:form>
+ 		<h:dataTable id="neueTabelle" var="neuerInhalt" value="#{tabelle.neueEintraege}"  
+    				 styleClass="neueInhalte" rowClasses="ungerade, gerade" columnClasses="land, , , co2"> <!-- !!!!!!!Es gab die Überlegung dem Admin eine eigene Funktion zum einsetzen der läänder zu geben, jedoch wurde dies nicht gemacht um die möglichkeit zu finden fehler zu finden. In der Freigabespalte ist er nämlich gewohnt korrekt zu lesen und muss auch eigene inhalte prüfen -->
+        <h:column>
+            <f:facet name="header">Land</f:facet>
+            <h:outputText value="#{neuerInhalt.land}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">CO²-Ausstoß</f:facet>
+            <h:outputText value="#{neuerInhalt.co2}"/>
+        </h:column>
+    	</h:dataTable>
+
+    	<h:commandButton value="Freigeben" action="#{tabelle.freigeben}" update="tabelle neueTabelle" />
+    	<h:commandButton value="Löschen" action="#{tabelle.loeschen}" update="neueTabelle" />
+	</h:form>
+  
+  
+  	<h3>Tabelle:</h3>
+	<h:dataTable id="tabelle" var="inhalt" value="#{tabelle.liste}" 
+			  	 styleClass="inhalt" rowClasses="ungerade, gerade" 
+				 columnClasses="land, , , co2">
+    <h:column>
+      	<f:facet name="header">Land</f:facet>
+      	<h:outputText value="#{inhalt.land}"/>
+    </h:column>
+    <h:column>
+      	<f:facet name="header">CO²-Ausstoß</f:facet>
+      	<h:outputText value="#{inhalt.co2}"/>
+    </h:column>
+    <h:column>
+      	<h:form>
+        	<h:commandLink action="#{tabelle.liste.remove(inhalt)}">
+        		<img src="x.png"/>
+        	</h:commandLink>
+      	</h:form>
+    </h:column>
+  	</h:dataTable>
+  	
+	<h5>Tabelleninhalt hinzufügen</h5>
+ 	<h:form>
+    	<h:panelGrid columns="5">
+        	<h:outputLabel value="Neues Land:" for="neuesLand" />
+        	<h:inputText id="neuesLand" value="#{tabelle.neuesLand}" />
+
+        	<h:outputLabel value="CO²-Ausstoß:" for="neuesCo2" />
+        	<h:inputText id="neuesCo2" value="#{tabelle.neuesCo2}" />
+
+        	<h:commandButton value="Speichern" action="#{tabelle.neuerEintrag}" update="tabelle" />
+    	</h:panelGrid>
+	</h:form>
+
+  	<h:form>
+    	<h:panelGrid columns="3">
+        	<h:commandButton value="Admin" action="admin.xhtml" />
+        	<h:commandButton value="Login" action="login.xhtml" />
+        	<h:commandButton value="Index" action="index.xhtml" />
+    	</h:panelGrid>
+  	</h:form>
+
+</h:body>
+</html>
